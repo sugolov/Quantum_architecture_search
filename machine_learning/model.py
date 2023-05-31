@@ -22,7 +22,7 @@ def encode_layer(feature, j, n_qubits):
     for i in range(n_qubits):
         qml.RY(feature[i], wires=i)
     
-    phi = (np.pi - feature[0].val)*(np.pi - feature[1].val)*(np.pi - feature[2].val)
+    phi = (np.pi - feature[0])*(np.pi - feature[1])*(np.pi - feature[2])
     # CRY 1
     qml.CRY(phi, wires=[0, 1])
     # CRY 2
