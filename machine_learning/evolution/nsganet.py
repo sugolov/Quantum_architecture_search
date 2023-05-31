@@ -6,11 +6,11 @@ from pymoo.model.individual import Individual
 from pymoo.model.survival import Survival
 from pymoo.operators.crossover.point_crossover import PointCrossover
 from pymoo.operators.mutation.polynomial_mutation import PolynomialMutation
-from pymoo.operators.sampling.random_sampling import RandomSampling
+from pymoo.operators.sampling.random_sampling import FloatRandomSampling
 from pymoo.operators.selection.tournament_selection import compare, TournamentSelection
 from pymoo.util.display import disp_multi_objective
 from pymoo.util.dominator import Dominator
-from pymoo.util.non_dominated_sorting import NonDominatedSorting
+from pymoo.util.nds.non_dominated_sorting import NonDominatedSorting
 from pymoo.util.randomized_argsort import randomized_argsort
 
 
@@ -177,10 +177,10 @@ def calc_crowding_distance(F):
 
 def nsganet(
         pop_size=100,
-        sampling=RandomSampling(var_type=np.int),
+        sampling=FloatRandomSampling(var_type=np.int),
         selection=TournamentSelection(func_comp=binary_tournament),
         crossover=PointCrossover(n_points=2),
-        mutation=PolynomialMutation(eta=3, var_type=np.int),
+        mutation=PolynomialMutation(eta=3),
         eliminate_duplicates=True,
         n_offsprings=None,
         **kwargs):
