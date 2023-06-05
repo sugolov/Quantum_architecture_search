@@ -180,7 +180,7 @@ def nsganet(
         sampling=RandomSampling(var_type=np.int),
         selection=TournamentSelection(func_comp=binary_tournament),
         crossover=PointCrossover(n_points=2),
-        mutation=PolynomialMutation(eta=3),
+        mutation=PolynomialMutation(eta=3, var_type=np.int),
         eliminate_duplicates=True,
         n_offsprings=None,
         **kwargs):
